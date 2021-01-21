@@ -1,0 +1,8 @@
+.import
+.repo
+*.log
+# do not add to git, reinstal with gspm
+# use 'addons/*' instead of 'addons' to ignore top-level dirs only
+addons/*
+# unignore local plugins
+!addons/plugin_*

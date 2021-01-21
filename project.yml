@@ -1,0 +1,59 @@
+# gspm project.yml <https://gs-project-manager-docs.readthedocs.io/en/latest/schema.html>
+name: gspm-template-project
+path: .
+version: 0.0.0
+default_type: git
+author: Rasmus Vermeulen
+email: rasmus_vermeulen@tutanota.com
+twitter:
+copyright: Copyright 2020
+license:
+godot:
+  local: $godot_stable$
+
+project:
+  url: none
+
+assets:
+  gs-logger:
+    location: https://gitlab.com/godot-stuff/gs-logger.git
+    branch: master
+    includes:
+      - dir: addons/gs_logger
+
+  godot-next:
+    location: https://github.com/willnationsdev/godot-next.git
+    branch: master
+    includes:
+      - dir: addons/godot-next
+
+  metadata-inspector:
+    location: https://github.com/ballerburg9005/godot-metadata-inspector.git
+    branch: master
+    includes:
+      - dir: addons/metadata_inspector
+
+  godot-plugin-refresher:
+    location: https://github.com/godot-extended-libraries/godot-plugin-refresher.git
+    branch: master
+    includes:
+      - dir: addons/godot-plugin-refresher
+
+  todo-manager:
+    location: https://github.com/OrigamiDev-Pete/TODO_Manager
+    branch: v1.1
+    includes:
+      - dir: addons/Todo_Manager
+
+  gut:
+    location: https://github.com/bitwes/Gut.git
+    includes:
+      - dir: addons/gut
+
+pre_install:
+
+post_install:
+
+pre_build:
+
+post_build:
