@@ -9,7 +9,7 @@ twitter:
 copyright: Copyright 2020
 license:
 godot:
-  local: $godot_stable$
+  local: $godot_324rc$
 
 project:
   url: none
