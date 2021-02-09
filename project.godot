@@ -1,4 +1,4 @@
 [application]
-config/name="gspm-template-project"
+config/name="godot-ecs-rts"
 config/description="None"
 config/version="0.0.0"

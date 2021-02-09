@@ -1,5 +1,5 @@
 # gspm project.yml <https://gs-project-manager-docs.readthedocs.io/en/latest/schema.html>
-name: gspm-template-project
+name: godot-ecs-rts
 path: .
 version: 0.0.0
 default_type: git
@@ -21,23 +21,23 @@ assets:
     includes:
       - dir: addons/gs_logger
 
-  godot-next:
-    location: https://github.com/willnationsdev/godot-next.git
-    branch: master
-    includes:
-      - dir: addons/godot-next
+  # godot-next:
+  #   location: https://github.com/willnationsdev/godot-next.git
+  #   branch: master
+  #   includes:
+  #     - dir: addons/godot-next
 
-  metadata-inspector:
-    location: https://github.com/ballerburg9005/godot-metadata-inspector.git
-    branch: master
-    includes:
-      - dir: addons/metadata_inspector
+  # metadata-inspector:
+  #   location: https://github.com/ballerburg9005/godot-metadata-inspector.git
+  #   branch: master
+  #   includes:
+  #     - dir: addons/metadata_inspector
 
-  godot-plugin-refresher:
-    location: https://github.com/godot-extended-libraries/godot-plugin-refresher.git
-    branch: master
-    includes:
-      - dir: addons/godot-plugin-refresher
+  # godot-plugin-refresher:
+  #   location: https://github.com/godot-extended-libraries/godot-plugin-refresher.git
+  #   branch: master
+  #   includes:
+  #     - dir: addons/godot-plugin-refresher
 
   todo-manager:
     location: https://github.com/OrigamiDev-Pete/TODO_Manager
@@ -50,6 +50,11 @@ assets:
     includes:
       - dir: addons/gut
 
+  gs-ecs:
+    location: https://gitlab.com/godot-stuff/gs-ecs.git
+    branch: 3.2
+    includes:
+      - dir: addons/gs_ecs
 pre_install:
 
 post_install:
