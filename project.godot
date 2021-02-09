@@ -98,3 +98,7 @@ ECS="*res://addons/gs_ecs/ecs.gd"
 [editor_plugins]
 
 enabled=PoolStringArray( "Todo_Manager", "gs_ecs", "gs_logger", "gut" )
+
+[logger]
+
+level="DEBUG"
