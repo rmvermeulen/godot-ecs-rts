@@ -89,3 +89,11 @@ _global_script_class_icons={
 config/name="godot-ecs-rts"
 config/description="None"
 config/version="0.0.0"
+
+[autoload]
+
+Logger="*res://addons/gs_logger/logger.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "Todo_Manager", "gs_logger", "gut" )
