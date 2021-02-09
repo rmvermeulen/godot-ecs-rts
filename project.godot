@@ -93,7 +93,8 @@ config/version="0.0.0"
 [autoload]
 
 Logger="*res://addons/gs_logger/logger.gd"
+ECS="*res://addons/gs_ecs/ecs.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "Todo_Manager", "gs_logger", "gut" )
+enabled=PoolStringArray( "Todo_Manager", "gs_ecs", "gs_logger", "gut" )
