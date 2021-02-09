@@ -1,4 +1,91 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Appender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appender.gd"
+}, {
+"base": "Node",
+"class": "Component",
+"language": "GDScript",
+"path": "res://addons/gs_ecs/component.gd"
+}, {
+"base": "Appender",
+"class": "ConsoleAppender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appenders/console_appender.gd"
+}, {
+"base": "Node",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://addons/gs_ecs/entity.gd"
+}, {
+"base": "Appender",
+"class": "FileAppender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appenders/file_appender.gd"
+}, {
+"base": "Node",
+"class": "Group",
+"language": "GDScript",
+"path": "res://addons/gs_ecs/group.gd"
+}, {
+"base": "Layout",
+"class": "HtmlLayout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layouts/html_layout.gd"
+}, {
+"base": "Reference",
+"class": "Layout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layout.gd"
+}, {
+"base": "Reference",
+"class": "Message",
+"language": "GDScript",
+"path": "res://addons/gs_logger/message.gd"
+}, {
+"base": "Layout",
+"class": "PatternLayout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layouts/pattern_layout.gd"
+}, {
+"base": "Node",
+"class": "System",
+"language": "GDScript",
+"path": "res://addons/gs_ecs/system.gd"
+}, {
+"base": "Reference",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://addons/gs_logger/utils.gd"
+} ]
+_global_script_class_icons={
+"Appender": "",
+"Component": "res://addons/gs_ecs/icons/menuGrid.png",
+"ConsoleAppender": "",
+"Entity": "res://addons/gs_ecs/icons/singleplayer.png",
+"FileAppender": "",
+"Group": "res://addons/gs_ecs/icons/share2.png",
+"HtmlLayout": "",
+"Layout": "",
+"Message": "",
+"PatternLayout": "",
+"System": "res://addons/gs_ecs/icons/gear.png",
+"Utils": ""
+}
+
 [application]
+
 config/name="godot-ecs-rts"
 config/description="None"
 config/version="0.0.0"

@@ -15,9 +15,26 @@ project:
   url: none
 
 assets:
+  todo-manager:
+    location: https://github.com/OrigamiDev-Pete/TODO_Manager
+    branch: v1.1
+    includes:
+      - dir: addons/Todo_Manager
+
+  gut:
+    location: https://github.com/bitwes/Gut.git
+    includes:
+      - dir: addons/gut
+
+  gs-ecs:
+    location: https://gitlab.com/godot-stuff/gs-ecs.git
+    branch: 3.2
+    includes:
+      - dir: addons/gs_ecs
+
   gs-logger:
     location: https://gitlab.com/godot-stuff/gs-logger.git
-    branch: master
+    branch: 3.2
     includes:
       - dir: addons/gs_logger
 
@@ -39,22 +56,6 @@ assets:
   #   includes:
   #     - dir: addons/godot-plugin-refresher
 
-  todo-manager:
-    location: https://github.com/OrigamiDev-Pete/TODO_Manager
-    branch: v1.1
-    includes:
-      - dir: addons/Todo_Manager
-
-  gut:
-    location: https://github.com/bitwes/Gut.git
-    includes:
-      - dir: addons/gut
-
-  gs-ecs:
-    location: https://gitlab.com/godot-stuff/gs-ecs.git
-    branch: 3.2
-    includes:
-      - dir: addons/gs_ecs
 pre_install:
 
 post_install:
