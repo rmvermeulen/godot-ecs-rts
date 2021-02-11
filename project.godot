@@ -64,6 +64,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/layouts/pattern_layout.gd"
 }, {
+"base": "Component",
+"class": "Selection",
+"language": "GDScript",
+"path": "res://components/Selection.gd"
+}, {
+"base": "System",
+"class": "SelectionSystem",
+"language": "GDScript",
+"path": "res://systems/SelectionSystem.gd"
+}, {
 "base": "Node",
 "class": "System",
 "language": "GDScript",
@@ -96,6 +106,8 @@ _global_script_class_icons={
 "Message": "",
 "MovingSystem": "",
 "PatternLayout": "",
+"Selection": "",
+"SelectionSystem": "",
 "System": "res://addons/gs_ecs/icons/gear.png",
 "Utils": "",
 "Velocity": "",
@@ -113,6 +125,7 @@ config/version="0.0.0"
 
 Logger="*res://addons/gs_logger/logger.gd"
 ECS="*res://addons/gs_ecs/ecs.gd"
+Events="*res://Events.gd"
 
 [editor_plugins]
 
