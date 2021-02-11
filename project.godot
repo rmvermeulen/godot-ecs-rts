@@ -77,7 +77,7 @@ _global_script_classes=[ {
 "base": "Component",
 "class": "Velocity",
 "language": "GDScript",
-"path": "res://Velocity.gd"
+"path": "res://components/Velocity.gd"
 }, {
 "base": "Entity",
 "class": "__Entity",
