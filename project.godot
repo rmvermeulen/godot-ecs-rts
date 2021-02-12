@@ -94,10 +94,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/Velocity.gd"
 }, {
+"base": "Component",
+"class": "__Component",
+"language": "GDScript",
+"path": "res://components/Path.gd"
+}, {
 "base": "Entity",
 "class": "__Entity",
 "language": "GDScript",
 "path": "res://entities/Unit.gd"
+}, {
+"base": "System",
+"class": "__System",
+"language": "GDScript",
+"path": "res://systems/PathFollowingSystem.gd"
 } ]
 _global_script_class_icons={
 "Appender": "",
@@ -117,7 +127,9 @@ _global_script_class_icons={
 "System": "res://addons/gs_ecs/icons/gear.png",
 "Utils": "",
 "Velocity": "",
-"__Entity": ""
+"__Component": "",
+"__Entity": "",
+"__System": ""
 }
 
 [application]
@@ -140,3 +152,8 @@ enabled=PoolStringArray( "Todo_Manager", "gs_ecs", "gs_logger", "gut" )
 [logger]
 
 level="DEBUG"
+
+[network]
+
+limits/debugger_stdout/max_chars_per_second=10000
+limits/debugger_stdout/max_messages_per_frame=100

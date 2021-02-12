@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://components/Velocity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/Projectile.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="Projectile" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="icon" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0.235294, 1 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
+
+[node name="Components" type="Node" parent="."]
+
+[node name="Velocity" parent="Components" instance=ExtResource( 1 )]
