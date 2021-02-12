@@ -93,6 +93,11 @@ _global_script_classes=[ {
 "class": "__Entity",
 "language": "GDScript",
 "path": "res://entities/Unit.gd"
+}, {
+"base": "System",
+"class": "__System",
+"language": "GDScript",
+"path": "res://systems/OverlaySystem.gd"
 } ]
 _global_script_class_icons={
 "Appender": "",
@@ -111,7 +116,8 @@ _global_script_class_icons={
 "System": "res://addons/gs_ecs/icons/gear.png",
 "Utils": "",
 "Velocity": "",
-"__Entity": ""
+"__Entity": "",
+"__System": ""
 }
 
 [application]
