@@ -1,14 +1,24 @@
 extends Node
 
-signal selected_pos(pos)
-signal selected_rect(rect)
+signal selected_screen_pos(screen_pos)
+signal selected_screen_rect(screen_rect)
 
-# func _ready():
-# 	Logger.debug('[Events] _ready')
-# 	yield(get_tree().create_timer(1.0), "timeout")
+var _drag_start_pos := Vector2()
 
-# 	emit_signal("selected_pos", Vector2(266, 215))
-# 	Logger.debug('[Events] selected_pos emitted')
 
-# 	emit_signal("selected_rect", Rect2(100, 100, 400, 400))
-# 	Logger.debug('[Events] selected_rect emitted')
+func _ready():
+	Logger.debug('[Events] _ready')
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("select_cursor"):
+		_drag_start_pos = event.position
+
+	elif event.is_action_released("select_cursor"):
+		var rect := Rect2()
+		rect.position = _drag_start_pos
+		rect.end = event.position
+		if rect.size.x > 16 || rect.size.y > 16:
+			emit_signal("selected_screen_rect", rect)
+		else:
+			emit_signal("selected_screen_pos", _drag_start_pos)
