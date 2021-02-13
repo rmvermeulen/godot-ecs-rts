@@ -59,15 +59,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://systems/VelocitySystem.gd"
 }, {
-"base": "System",
-"class": "OverlaySystem",
+"base": "Component",
+"class": "PathComponent",
 "language": "GDScript",
-"path": "res://systems/OverlaySystem.gd"
+"path": "res://components/Path.gd"
 }, {
 "base": "Layout",
 "class": "PatternLayout",
 "language": "GDScript",
 "path": "res://addons/gs_logger/layouts/pattern_layout.gd"
+}, {
+"base": "Entity",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://entities/Projectile.gd"
 }, {
 "base": "Component",
 "class": "Selection",
@@ -94,11 +99,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/Velocity.gd"
 }, {
-"base": "Component",
-"class": "__Component",
-"language": "GDScript",
-"path": "res://components/Path.gd"
-}, {
 "base": "Entity",
 "class": "__Entity",
 "language": "GDScript",
@@ -120,14 +120,14 @@ _global_script_class_icons={
 "Layout": "",
 "Message": "",
 "MovingSystem": "",
-"OverlaySystem": "",
+"PathComponent": "",
 "PatternLayout": "",
+"Projectile": "",
 "Selection": "",
 "SelectionSystem": "",
 "System": "res://addons/gs_ecs/icons/gear.png",
 "Utils": "",
 "Velocity": "",
-"__Component": "",
 "__Entity": "",
 "__System": ""
 }
@@ -148,6 +148,19 @@ Events="*res://src/Events.gd"
 [editor_plugins]
 
 enabled=PoolStringArray( "Todo_Manager", "gs_ecs", "gs_logger", "gut" )
+
+[input]
+
+select_cursor={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+cmd_move_here={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [logger]
 
