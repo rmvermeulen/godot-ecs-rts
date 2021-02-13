@@ -1,4 +1,4 @@
-class_name __System
+class_name PathFollowingSystem
 extends System
 
 # func on_process(entities: Array, delta: float):
