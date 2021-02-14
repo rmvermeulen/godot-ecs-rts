@@ -1,4 +1,4 @@
-class_name __Entity
+class_name Unit
 extends Entity
 
 # func on_init():pass
