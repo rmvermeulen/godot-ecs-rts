@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/appenders/console_appender.gd"
 }, {
+"base": "Component",
+"class": "Destination",
+"language": "GDScript",
+"path": "res://components/Destination.gd"
+}, {
 "base": "Node",
 "class": "Entity",
 "language": "GDScript",
@@ -60,9 +65,14 @@ _global_script_classes=[ {
 "path": "res://systems/VelocitySystem.gd"
 }, {
 "base": "Component",
-"class": "PathComponent",
+"class": "NavPath",
 "language": "GDScript",
-"path": "res://components/Path.gd"
+"path": "res://components/NavPath.gd"
+}, {
+"base": "System",
+"class": "PathFindingSystem",
+"language": "GDScript",
+"path": "res://systems/PathFindingSystem.gd"
 }, {
 "base": "System",
 "class": "PathFollowingSystem",
@@ -113,6 +123,7 @@ _global_script_class_icons={
 "Appender": "",
 "Component": "res://addons/gs_ecs/icons/menuGrid.png",
 "ConsoleAppender": "",
+"Destination": "",
 "Entity": "res://addons/gs_ecs/icons/singleplayer.png",
 "FileAppender": "",
 "Group": "res://addons/gs_ecs/icons/share2.png",
@@ -120,7 +131,8 @@ _global_script_class_icons={
 "Layout": "",
 "Message": "",
 "MovingSystem": "",
-"PathComponent": "",
+"NavPath": "",
+"PathFindingSystem": "",
 "PathFollowingSystem": "",
 "PatternLayout": "",
 "Projectile": "",

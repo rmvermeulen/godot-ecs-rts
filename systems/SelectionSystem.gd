@@ -44,6 +44,8 @@ func on_process(entities: Array, _delta: float):
 	# clear event data
 	_selection_event_data = null
 
+	prints(_selected_entities)
+
 
 func deselect_all(entities: Array):
 	_selected_entities = []
