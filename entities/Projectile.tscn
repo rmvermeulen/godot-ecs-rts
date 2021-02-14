@@ -21,3 +21,4 @@ texture = ExtResource( 4 )
 [node name="Components" type="Node" parent="."]
 
 [node name="Velocity" parent="Components" instance=ExtResource( 1 )]
+speed = 500.0
