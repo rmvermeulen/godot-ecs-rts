@@ -118,6 +118,11 @@ _global_script_classes=[ {
 "class": "Velocity",
 "language": "GDScript",
 "path": "res://components/Velocity.gd"
+}, {
+"base": "System",
+"class": "__System",
+"language": "GDScript",
+"path": "res://systems/DestinationSystem.gd"
 } ]
 _global_script_class_icons={
 "Appender": "",
@@ -141,7 +146,8 @@ _global_script_class_icons={
 "System": "res://addons/gs_ecs/icons/gear.png",
 "Unit": "",
 "Utils": "",
-"Velocity": ""
+"Velocity": "",
+"__System": ""
 }
 
 [application]
