@@ -45,6 +45,7 @@ func test_create_quadtree():
 	)
 
 
-func _test_insert_data():
-	assert_true(quad.insert_int(Vector2(10, 10), value + 2))
-	assert_eq(quad._data, PoolIntArray([value, 0, 0, 0, 0]))
+func test_insert_data():
+	var new_value := value + 2
+	assert_true(quad.insert_int(Vector2(10, 10), new_value))
+	assert_eq(quad._data, PoolIntArray([value, new_value, value, value, value]))
