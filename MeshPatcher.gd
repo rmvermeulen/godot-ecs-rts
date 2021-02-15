@@ -1,7 +1,7 @@
 extends Navigation2D
 
 var shape_extents := Vector2(16, 16)
-var quad := QuadTreeInt.new(1024, 600, 3, 25)
+var quad := QuadTree.new(1024, 600, 3, 25)
 
 
 func _ready():
