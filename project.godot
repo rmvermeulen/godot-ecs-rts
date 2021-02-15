@@ -92,7 +92,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "QuadTreeInt",
 "language": "GDScript",
-"path": "res://QuadTreeInt.gd"
+"path": "res://src/QuadTree.gd"
 }, {
 "base": "Component",
 "class": "Selection",

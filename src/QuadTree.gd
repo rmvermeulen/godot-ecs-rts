@@ -1,4 +1,4 @@
-class_name QuadTreeInt
+class_name QuadTree
 extends Reference
 
 var _data := PoolIntArray()
