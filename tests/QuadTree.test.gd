@@ -1,11 +1,17 @@
 extends "res://addons/gut/test.gd"
 
-var value := 10
+const total_tests := 7
+
 var quad: QuadTree
+var completed_tests := 0
+
+
+func after_all():
+	assert_eq(completed_tests, total_tests, "Not all tests completed!")
 
 
 func before_each():
-	quad = QuadTree.new(128, 128, 2, value)
+	quad = QuadTree.new(128, 128, 2, QuadTree.SOLID)
 
 
 func test_child_of():
@@ -15,6 +21,8 @@ func test_child_of():
 	assert_eq(QuadTree.child_d_of(0), 4, "expected 4th child")
 
 	assert_eq(QuadTree.child_a_of(10), 41)
+
+	completed_tests += 1
 
 
 func test_parent_of():
@@ -27,6 +35,8 @@ func test_parent_of():
 	assert_eq(QuadTree.parent_of(41), 10)
 	assert_eq(QuadTree.parent_of(1000), 249)
 
+	completed_tests += 1
+
 
 func test_child_parent_pipe():
 	for i in [10, 13, 140, 200]:
@@ -34,6 +44,8 @@ func test_child_parent_pipe():
 		assert_eq(i, QuadTree.parent_of(QuadTree.child_b_of(i)), "expected id")
 		assert_eq(i, QuadTree.parent_of(QuadTree.child_c_of(i)), "expected id")
 		assert_eq(i, QuadTree.parent_of(QuadTree.child_d_of(i)), "expected id")
+
+	completed_tests += 1
 
 
 func test_create_quadtree():
@@ -46,9 +58,7 @@ func test_create_quadtree():
 		PoolIntArray([QuadTree.SOLID, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 	)
 
-
-func test_remove_rect():
-	pass
+	completed_tests += 1
 
 
 func test_get_rect():
@@ -66,3 +76,18 @@ func test_get_rect():
 	assert_eq(quad.get_rect(int(15e2)), Rect2(6, 18, 2, 2))
 	assert_eq(quad.get_rect(int(10e3)), Rect2(85, 15, 1, 1))
 	assert_eq(quad.get_rect(int(10e5)), Rect2(53.125, 93.875, 0.125, 0.125))
+
+	completed_tests += 1
+
+
+func test_remove_rect():
+	quad.remove_rect(Rect2(16, 16, 32, 32))
+
+	completed_tests += 1
+
+
+func test_find_leaves():
+	var leaves = quad.find_leaves_below(0)
+	assert_not_null(leaves)
+
+	completed_tests += 1
