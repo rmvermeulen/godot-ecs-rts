@@ -48,6 +48,14 @@ func insert_int(pos: Vector2, value: int, depth := 0) -> bool:
 	return true
 
 
+func get_rect(index: int) -> Rect2:
+	match index:
+		0:
+			return Rect2(0, 0, _width, _height)
+		_:
+			return Rect2()
+
+
 static func child_a_of(index: int) -> int:
 	return (4 * index) + 1
 

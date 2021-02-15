@@ -49,3 +49,20 @@ func test_insert_data():
 	var new_value := value + 2
 	assert_true(quad.insert_int(Vector2(10, 10), new_value))
 	assert_eq(quad._data, PoolIntArray([value, new_value, value, value, value]))
+
+	assert_true(quad.insert_int(Vector2(60, 10), new_value))
+	assert_eq(quad._data, PoolIntArray([value, new_value, new_value, value, value]))
+
+	assert_true(quad.insert_int(Vector2(10, 60), new_value))
+	assert_eq(quad._data, PoolIntArray([value, new_value, new_value, new_value, value]))
+
+	assert_true(quad.insert_int(Vector2(60, 60), new_value))
+	assert_eq(quad._data, PoolIntArray([value, new_value, new_value, new_value, new_value]))
+
+
+func test_get_rect():
+	assert_eq(quad.get_rect(0), Rect2(0, 0, 100, 100))
+	assert_eq(quad.get_rect(1), Rect2(0, 0, 50, 50))
+	assert_eq(quad.get_rect(2), Rect2(50, 0, 50, 50))
+	assert_eq(quad.get_rect(3), Rect2(0, 50, 50, 50))
+	assert_eq(quad.get_rect(4), Rect2(50, 50, 50, 50))
