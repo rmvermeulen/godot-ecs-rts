@@ -5,7 +5,7 @@ var quad: QuadTreeInt
 
 
 func before_each():
-	quad = QuadTreeInt.new(100, 100, 2, value)
+	quad = QuadTreeInt.new(128, 128, 2, value)
 
 
 func test_child_of():
@@ -37,32 +37,35 @@ func test_child_parent_pipe():
 
 
 func test_create_quadtree():
-	assert_eq(QuadTreeInt.new(100, 100, 1, value)._data, PoolIntArray([value]))
-	assert_eq(QuadTreeInt.new(100, 100, 2, value)._data, PoolIntArray([value, 0, 0, 0, 0]))
+	assert_eq(QuadTreeInt.new(128, 128, 1, value)._data, PoolIntArray([value]))
+	assert_eq(QuadTreeInt.new(128, 128, 2, value)._data, PoolIntArray([value, 0, 0, 0, 0]))
 	assert_eq(
-		QuadTreeInt.new(100, 100, 3, value)._data,
+		QuadTreeInt.new(128, 128, 3, value)._data,
 		PoolIntArray([value, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 	)
 
 
 func test_insert_data():
 	var new_value := value + 2
-	assert_true(quad.insert_int(Vector2(10, 10), new_value))
+	assert_true(quad.insert_int(Vector2(16, 16), new_value))
 	assert_eq(quad._data, PoolIntArray([value, new_value, value, value, value]))
 
-	assert_true(quad.insert_int(Vector2(60, 10), new_value))
+	assert_true(quad.insert_int(Vector2(80, 16), new_value))
 	assert_eq(quad._data, PoolIntArray([value, new_value, new_value, value, value]))
 
-	assert_true(quad.insert_int(Vector2(10, 60), new_value))
+	assert_true(quad.insert_int(Vector2(16, 80), new_value))
 	assert_eq(quad._data, PoolIntArray([value, new_value, new_value, new_value, value]))
 
-	assert_true(quad.insert_int(Vector2(60, 60), new_value))
+	assert_true(quad.insert_int(Vector2(80, 80), new_value))
 	assert_eq(quad._data, PoolIntArray([value, new_value, new_value, new_value, new_value]))
 
 
 func test_get_rect():
-	assert_eq(quad.get_rect(0), Rect2(0, 0, 100, 100))
-	assert_eq(quad.get_rect(1), Rect2(0, 0, 50, 50))
-	assert_eq(quad.get_rect(2), Rect2(50, 0, 50, 50))
-	assert_eq(quad.get_rect(3), Rect2(0, 50, 50, 50))
-	assert_eq(quad.get_rect(4), Rect2(50, 50, 50, 50))
+	assert_eq(quad.get_rect(0), Rect2(0, 0, 128, 128))
+
+	assert_eq(quad.get_rect(1), Rect2(0, 0, 64, 64))
+	assert_eq(quad.get_rect(2), Rect2(64, 0, 64, 64))
+	assert_eq(quad.get_rect(3), Rect2(0, 64, 64, 64))
+	assert_eq(quad.get_rect(4), Rect2(64, 64, 64, 64))
+
+	assert_eq(quad.get_rect(5), Rect2(64, 64, 25, 25))

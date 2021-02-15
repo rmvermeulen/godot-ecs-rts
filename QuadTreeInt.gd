@@ -49,11 +49,26 @@ func insert_int(pos: Vector2, value: int, depth := 0) -> bool:
 
 
 func get_rect(index: int) -> Rect2:
-	match index:
+	if index == 0:
+		return Rect2(0, 0, _width, _height)
+
+	var parent := parent_of(index)
+	var rect := get_rect(parent)
+	var child_index = index - child_a_of(parent)
+	var w := rect.size.x / 2
+	var h := rect.size.y / 2
+	match child_index:
 		0:
-			return Rect2(0, 0, _width, _height)
-		_:
-			return Rect2()
+			return rect.grow_individual(0, 0, -w, -h)
+		1:
+			return rect.grow_individual(-w, 0, 0, -h)
+		2:
+			return rect.grow_individual(0, -h, -w, 0)
+		3:
+			return rect.grow_individual(-w, -h, 0, 0)
+
+	assert(false, "Invalid index")
+	return Rect2()
 
 
 static func child_a_of(index: int) -> int:
