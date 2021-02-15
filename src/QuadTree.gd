@@ -1,6 +1,8 @@
 class_name QuadTree
 extends Reference
 
+enum { NULL, SOLID, CLEAR }
+
 var _data := PoolIntArray()
 var _width: int
 var _height: int
@@ -23,29 +25,19 @@ func _init(width: int, height: int, max_depth: int, initial_value: int):
 	_data.resize(total)
 	for i in total:
 		_data[i] = 0
-	_data[0] = initial_value
+	match initial_value:
+		SOLID:
+			_data[0] = SOLID
+		CLEAR:
+			_data[0] = CLEAR
+		_:
+			pass
 	prints('data zeroed!')
 
 
-func insert_int(pos: Vector2, value: int, depth := 0) -> bool:
-	return false
-	var index := 0
-	var center := Vector2(_width, _height) / 2
-	while true:
-		# check stuff
-		var current_value = _data[index]
-		var node_is_leaf = child_a_of(index) == 0
-		if node_is_leaf:
-			# split node
-			# set current_value on children
-			pass
-		else:
-			# go to children
-			pass
-
-		depth += 1
-		index += pow(4, depth)
-	return true
+func remove_rect(rect: Rect2):
+	var leaves := find_leaves_below(0)
+	prints(leaves)
 
 
 func get_rect(index: int) -> Rect2:
@@ -69,6 +61,18 @@ func get_rect(index: int) -> Rect2:
 
 	assert(false, "Invalid index")
 	return Rect2()
+
+
+func find_leaves_below(index: int) -> Array:
+	var first_child := child_a_of(index)
+	var is_leaf_node := _data[first_child] == NULL
+	if is_leaf_node:
+		return [index]
+	var leaves := []
+	for i in 4:
+		for result in find_leaves_below(first_child + i):
+			leaves.append(result)
+	return leaves
 
 
 static func child_a_of(index: int) -> int:
