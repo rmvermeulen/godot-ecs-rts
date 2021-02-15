@@ -62,7 +62,7 @@ func test_get_rect():
 	assert_eq(quad.get_rect(5), Rect2(0, 0, 32, 32))
 	assert_eq(quad.get_rect(8), Rect2(32, 32, 32, 32))
 
-	assert_eq(quad.get_rect(15e1), Rect2(72, 0, 8, 8))
-	assert_eq(quad.get_rect(15e2), Rect2(6, 18, 2, 2))
-	assert_eq(quad.get_rect(10e3), Rect2(85, 15, 1, 1))
-	assert_eq(quad.get_rect(10e5), Rect2(53.125, 93.875, 0.125, 0.125))
+	assert_eq(quad.get_rect(int(15e1)), Rect2(72, 0, 8, 8))
+	assert_eq(quad.get_rect(int(15e2)), Rect2(6, 18, 2, 2))
+	assert_eq(quad.get_rect(int(10e3)), Rect2(85, 15, 1, 1))
+	assert_eq(quad.get_rect(int(10e5)), Rect2(53.125, 93.875, 0.125, 0.125))
