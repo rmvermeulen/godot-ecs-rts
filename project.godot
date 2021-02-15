@@ -90,7 +90,7 @@ _global_script_classes=[ {
 "path": "res://entities/Projectile.gd"
 }, {
 "base": "Reference",
-"class": "QuadTreeInt",
+"class": "QuadTree",
 "language": "GDScript",
 "path": "res://src/QuadTree.gd"
 }, {
@@ -146,7 +146,7 @@ _global_script_class_icons={
 "PathFollowingSystem": "",
 "PatternLayout": "",
 "Projectile": "",
-"QuadTreeInt": "",
+"QuadTree": "",
 "Selection": "",
 "SelectionSystem": "",
 "System": "res://addons/gs_ecs/icons/gear.png",
