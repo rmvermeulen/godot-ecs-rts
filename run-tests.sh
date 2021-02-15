@@ -1,1 +1,1 @@
-Godot_v3.2.4-rc1_win64.exe -s res://addons/gut/gut_cmdln.gd
+Godot_v3.2.4-rc1_win64.exe -s res://addons/gut/gut_cmdln.gd $*
