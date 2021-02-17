@@ -1,7 +1,7 @@
 class_name SelectionSystem
 extends System
 
-export var team_color := Color(40, 85, 147)
+export var team_color := Color(0.23, 0.45, 0.84, 1)
 
 # any selection event has some data (position, rect, ...)
 var _selection_event_data = null
