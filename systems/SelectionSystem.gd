@@ -71,6 +71,8 @@ func select_rect(entities: Array, rect: Rect2):
 		if entity_rect.intersects(rect):
 			component.selected = true
 			_selected_entities.append(entity)
+		else:
+			component.selected = false
 
 
 func get_selected_entities() -> Array:
