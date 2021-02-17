@@ -104,6 +104,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_ecs/system.gd"
 }, {
+"base": "Component",
+"class": "Team",
+"language": "GDScript",
+"path": "res://components/Team.gd"
+}, {
 "base": "Entity",
 "class": "Unit",
 "language": "GDScript",
@@ -118,11 +123,6 @@ _global_script_classes=[ {
 "class": "Velocity",
 "language": "GDScript",
 "path": "res://components/Velocity.gd"
-}, {
-"base": "Entity",
-"class": "__Entity",
-"language": "GDScript",
-"path": "res://src/Overlay.gd"
 }, {
 "base": "System",
 "class": "__System",
@@ -149,10 +149,10 @@ _global_script_class_icons={
 "Selection": "",
 "SelectionSystem": "",
 "System": "res://addons/gs_ecs/icons/gear.png",
+"Team": "",
 "Unit": "",
 "Utils": "",
 "Velocity": "",
-"__Entity": "",
 "__System": ""
 }
 
