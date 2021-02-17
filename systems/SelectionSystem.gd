@@ -44,7 +44,7 @@ func on_process(entities: Array, _delta: float):
 			var own_entities := []
 			for entity in entities:
 				var team: Team = entity.get_component("team")
-				if team.color == team_color:
+				if team.color == team_color && not (entity is StaticBody2D):
 					own_entities.append(entity)
 
 			select_rect(own_entities, _selection_event_data)
