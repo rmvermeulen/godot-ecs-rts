@@ -8,7 +8,7 @@ var _width: int
 var _height: int
 
 
-func _init(width: int, height: int, max_depth: int, initial_value: int):
+func _init(width: int, height: int, max_depth: int):
 	assert(width > 0, "width must be larger than 0")
 	assert(height > 0, "height must be larger than 0")
 	assert(max_depth > 0, "max_depth must be larger than 0")
@@ -25,19 +25,34 @@ func _init(width: int, height: int, max_depth: int, initial_value: int):
 	_data.resize(total)
 	for i in total:
 		_data[i] = 0
-	match initial_value:
-		SOLID:
-			_data[0] = SOLID
-		CLEAR:
-			_data[0] = CLEAR
-		_:
-			pass
-	prints('data zeroed!')
+	_data[0] = SOLID
 
 
 func remove_rect(rect: Rect2):
-	var leaves := find_leaves_below(0)
-	prints(leaves)
+	prints('removing rect ...')
+	prints(rect)
+	prints()
+	var leaves := find_leaves_rects()
+	var to_split := []
+	for id in leaves:
+		if get_rect(id).intersects(rect):
+			to_split.append(id)
+
+	if to_split.empty():
+		return
+
+	for id in to_split:
+		var first_child := child_a_of(id)
+		if first_child >= _data.size():
+			# overwrite current value
+			_data[id] = CLEAR
+		else:
+			# split into 4
+			for i in 4:
+				var cid: int = first_child + i
+				_data[cid] = CLEAR if get_rect(cid).intersects(rect) else SOLID
+
+	return remove_rect(rect)
 
 
 func get_rect(index: int) -> Rect2:
@@ -63,16 +78,27 @@ func get_rect(index: int) -> Rect2:
 	return Rect2()
 
 
-func find_leaves_below(index: int) -> Array:
+func _find_leaves_recursive(index: int) -> Array:
 	var first_child := child_a_of(index)
+	if first_child >= _data.size():
+		return [index]
 	var is_leaf_node := _data[first_child] == NULL
 	if is_leaf_node:
 		return [index]
 	var leaves := []
 	for i in 4:
-		for result in find_leaves_below(first_child + i):
+		for result in _find_leaves_recursive(first_child + i):
 			leaves.append(result)
 	return leaves
+
+
+func find_leaves_rects() -> Dictionary:
+	var rects := {}
+	for id in _find_leaves_recursive(0):
+		if _data[id] == SOLID:
+			rects[id] = get_rect(id)
+
+	return rects
 
 
 static func child_a_of(index: int) -> int:
