@@ -4,4 +4,4 @@
 
 [node name="SelectionSystem" type="Node"]
 script = ExtResource( 1 )
-COMPONENTS = "selection"
+COMPONENTS = "selection,team"

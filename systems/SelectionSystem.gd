@@ -1,6 +1,8 @@
 class_name SelectionSystem
 extends System
 
+export var team_color := Color(40, 85, 147)
+
 # any selection event has some data (position, rect, ...)
 var _selection_event_data = null
 var _selected_entities = []
@@ -39,7 +41,13 @@ func on_process(entities: Array, _delta: float):
 			var collider = null if results.empty() else results[0].collider
 			select_single(entities, collider)
 		TYPE_RECT2:
-			select_rect(entities, _selection_event_data)
+			var own_entities := []
+			for entity in entities:
+				var team: Team = entity.get_component("team")
+				if team.color == team_color:
+					own_entities.append(entity)
+
+			select_rect(own_entities, _selection_event_data)
 
 	# clear event data
 	_selection_event_data = null
