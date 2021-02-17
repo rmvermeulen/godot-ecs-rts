@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Game.gd" type="Script" id=1]
 [ext_resource path="res://systems/VelocitySystem.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://systems/DestinationSystem.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Overlay.gd" type="Script" id=9]
 [ext_resource path="res://entities/UnitEnemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/StructureEnemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://entities/Structure.tscn" type="PackedScene" id=12]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -55,3 +57,15 @@ position = Vector2( 568, 128 )
 
 [node name="Overlay" type="Node2D" parent="CanvasLayer"]
 script = ExtResource( 9 )
+
+[node name="Structure" parent="." instance=ExtResource( 12 )]
+position = Vector2( 232, 432 )
+
+[node name="Structure2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 376, 472 )
+
+[node name="StructureEnemy" parent="." instance=ExtResource( 11 )]
+position = Vector2( 712, 104 )
+
+[node name="StructureEnemy2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 832, 176 )

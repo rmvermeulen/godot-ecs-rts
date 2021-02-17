@@ -5,4 +5,4 @@
 [node name="UnitEnemy" instance=ExtResource( 1 )]
 
 [node name="Team" parent="Components" index="3"]
-color = Color( 0.831373, 0.294118, 0.14902, 1 )
+color = Color( 0.839216, 0.27451, 0.231373, 1 )
