@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Game.gd" type="Script" id=1]
 [ext_resource path="res://systems/VelocitySystem.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://entities/Projectile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://systems/PathFindingSystem.tscn" type="PackedScene" id=7]
 [ext_resource path="res://systems/DestinationSystem.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Overlay.gd" type="Script" id=9]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -36,3 +37,8 @@ position = Vector2( 610, 220 )
 
 [node name="Projectile" parent="." instance=ExtResource( 6 )]
 position = Vector2( 104, 120 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Overlay" type="Node2D" parent="CanvasLayer"]
+script = ExtResource( 9 )
